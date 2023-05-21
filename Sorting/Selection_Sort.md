@@ -9,18 +9,19 @@ using namespace std;
 // Selection Sort Logic
 void selection_sort(int ar[],int n){
     // Loop for traversing array to swap smallest value with the current element of loop
-    for(int i=0;i<n-1;i++){
-        // Storing index of smallest element in 'elem', initially same element (i)
-        int elem=i;
-        // Loop to identify smallest element and storing that index in 'elem'
-        for(int j=i+1;j<n;j++){
-            if(ar[elem]>ar[j]){
-                elem=j;
-            }
-        }
-        // Swapping smallest element (elem) with current element of loop (i)
-        swap(ar[elem],ar[i]);
-    }
+    int i,j,k,temp;
+    for(i=0;i<n;i++){
+		j=i,k=i;
+		while(j<n){
+			if(ar[k]>ar[j])
+				k++;
+			else 
+				j++;
+		}
+		temp=ar[k];
+		ar[k]=ar[i];
+		ar[i]=temp;
+	}
 }
 
 // Sorting Algorithm Boiler code to take input of array, call the sorting function and print the array.
